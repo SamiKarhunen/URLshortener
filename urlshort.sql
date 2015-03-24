@@ -1,0 +1,13 @@
+DROP DATABASE IF EXISTS urlshort;
+CREATE DATABASE urlshort;
+USE urlshort;
+
+CREATE TABLE url (
+longurl VARCHAR(200) PRIMARY KEY,
+added TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE shorturl (
+shorturl VARCHAR(50) PRIMARY KEY,
+longurl VARCHAR(200),
+FOREIGN KEY longurl REFERENCES url(longurl));
